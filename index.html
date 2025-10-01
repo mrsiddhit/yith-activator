@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>iOS-style Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="app" aria-label="Calculator">
+      <div class="status-bar">
+        <span class="time" aria-hidden="true">9:41</span>
+        <span class="brand">Calculator</span>
+      </div>
+
+      <div class="display" role="region" aria-live="polite" aria-atomic="true">
+        <div class="history" id="history" aria-hidden="true"></div>
+        <div class="value" id="display">0</div>
+      </div>
+
+      <div class="keys" role="group" aria-label="Calculator keys">
+        <!-- Row 1 -->
+        <button class="key key-fn" data-action="clear" aria-label="All Clear">AC</button>
+        <button class="key key-fn" data-action="sign" aria-label="Toggle Sign">±</button>
+        <button class="key key-fn" data-action="percent" aria-label="Percent">%</button>
+        <button class="key key-op" data-action="divide" aria-label="Divide">÷</button>
+
+        <!-- Row 2 -->
+        <button class="key" data-digit="7">7</button>
+        <button class="key" data-digit="8">8</button>
+        <button class="key" data-digit="9">9</button>
+        <button class="key key-op" data-action="multiply" aria-label="Multiply">×</button>
+
+        <!-- Row 3 -->
+        <button class="key" data-digit="4">4</button>
+        <button class="key" data-digit="5">5</button>
+        <button class="key" data-digit="6">6</button>
+        <button class="key key-op" data-action="subtract" aria-label="Subtract">−</button>
+
+        <!-- Row 4 -->
+        <button class="key" data-digit="1">1</button>
+        <button class="key" data-digit="2">2</button>
+        <button class="key" data-digit="3">3</button>
+        <button class="key key-op" data-action="add" aria-label="Add">+</button>
+
+        <!-- Row 5 -->
+        <button class="key key-zero" data-digit="0">0</button>
+        <button class="key" data-action="decimal" aria-label="Decimal">.</button>
+        <button class="key key-eq" data-action="equals" aria-label="Equals">=</button>
+      </div>
+    </main>
+
+    <script src="/script.js"></script>
+  </body>
+</html>
+

@@ -1,0 +1,118 @@
+:root {
+  --bg: #0c0c0c;
+  --panel: #161616;
+  --text: #ffffff;
+  --muted: #a1a1a1;
+  --key: #2a2a2a;
+  --key-fn: #9f9f9f;
+  --key-op: #ff9f0a;
+  --key-op-active: #f08a00;
+  --shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: radial-gradient(1200px 800px at 80% -10%, #1d1d1d, var(--bg));
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  display: grid;
+  place-items: center;
+}
+
+.app {
+  width: min(420px, 92vw);
+  background: linear-gradient(180deg, #1a1a1a 0%, var(--panel) 100%);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  padding: 18px 18px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 6px 12px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.status-bar .brand { letter-spacing: 0.3px; }
+
+.display {
+  min-height: 120px;
+  display: grid;
+  align-items: end;
+  justify-items: end;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+.display .history {
+  color: var(--muted);
+  font-size: 14px;
+  min-height: 20px;
+}
+.display .value {
+  font-size: clamp(40px, 8vw, 64px);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.key {
+  appearance: none;
+  border: none;
+  background: linear-gradient(180deg, #2d2d2d, var(--key));
+  color: var(--text);
+  font-size: 22px;
+  padding: 18px 0;
+  border-radius: 16px;
+  cursor: pointer;
+  box-shadow: inset 0 -1px 0 rgba(255,255,255,0.06), var(--shadow);
+  transition: transform 0.06s ease, filter 0.06s ease, background 0.2s;
+}
+
+.key:focus-visible {
+  outline: 2px solid rgba(255,255,255,0.5);
+  outline-offset: 2px;
+}
+
+.key:active, .key[aria-pressed="true"] {
+  transform: translateY(1px) scale(0.995);
+  filter: brightness(0.95);
+}
+
+.key-fn {
+  background: linear-gradient(180deg, #b8b8b8, var(--key-fn));
+  color: #111;
+}
+
+.key-op {
+  background: linear-gradient(180deg, #ffb347, var(--key-op));
+  color: #fff;
+}
+.key-op.active {
+  background: linear-gradient(180deg, #ffa733, var(--key-op-active));
+}
+
+.key-eq {
+  background: linear-gradient(180deg, #ffb347, var(--key-op));
+}
+
+.key-zero {
+  grid-column: span 2;
+  text-align: left;
+  padding-left: 22px;
+}
+
+@media (max-width: 380px) {
+  .app { border-radius: 20px; padding: 14px 14px 18px; }
+  .key { font-size: 20px; padding: 16px 0; border-radius: 14px; }
+}
+
